@@ -1,0 +1,250 @@
+{
+  "widgets": [
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 0,
+      "width": 21,
+      "height": 3,
+      "properties": {
+        "metrics": [
+          [
+            "AWS/AutoScaling",
+            "GroupInServiceInstances",
+            "AutoScalingGroupName",
+            "${AUTOSCALING_GROUP_NAME}"
+          ],
+          [
+            ".",
+            "GroupTotalInstances",
+            ".",
+            "."
+          ],
+          [
+            ".",
+            "GroupDesiredCapacity",
+            ".",
+            "."
+          ],
+          [
+            ".",
+            "GroupMinSize",
+            ".",
+            "."
+          ],
+          [
+            ".",
+            "GroupMaxSize",
+            ".",
+            "."
+          ],
+          [
+            ".",
+            "GroupPendingInstances",
+            ".",
+            "."
+          ],
+          [
+            ".",
+            "GroupStandbyInstances",
+            ".",
+            "."
+          ],
+          [
+            ".",
+            "GroupTerminatingInstances",
+            ".",
+            ".",
+            {
+              "visible": false
+            }
+          ]
+        ],
+        "view": "singleValue",
+        "region": "eu-central-1",
+        "title": "ASG",
+        "period": 300,
+        "stat": "Average"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 3,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          [
+            "AWS/EC2",
+            "CPUUtilization",
+            "AutoScalingGroupName",
+            "${AUTOSCALING_GROUP_NAME}"
+          ]
+        ],
+        "view": "timeSeries",
+        "stacked": false,
+        "region": "eu-central-1",
+        "title": "CPU",
+        "period": 300
+      }
+    },
+    {
+      "type": "metric",
+      "x": 21,
+      "y": 0,
+      "width": 3,
+      "height": 3,
+      "properties": {
+        "metrics": [
+          [
+            "AWS/EC2",
+            "CPUUtilization",
+            "AutoScalingGroupName",
+            "${AUTOSCALING_GROUP_NAME}"
+          ]
+        ],
+        "view": "singleValue",
+        "region": "eu-central-1",
+        "title": "CPU",
+        "period": 300,
+        "stat": "Average"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 9,
+      "width": 6,
+      "height": 6,
+      "properties": {
+        "view": "timeSeries",
+        "stacked": false,
+        "metrics": [
+          [
+            "${COMPONENT_NAME}",
+            "net_drop_out",
+            "AutoScalingGroupName",
+            "${AUTOSCALING_GROUP_NAME}"
+          ],
+          [
+            ".",
+            "net_bytes_sent",
+            ".",
+            "."
+          ],
+          [
+            ".",
+            "net_bytes_recv",
+            ".",
+            "."
+          ],
+          [
+            ".",
+            "net_drop_in",
+            ".",
+            "."
+          ]
+        ],
+        "region": "eu-central-1",
+        "title": "eth0"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 3,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "view": "timeSeries",
+        "stacked": false,
+        "metrics": [
+          [
+            "${COMPONENT_NAME}",
+            "mem_used_percent",
+            "AutoScalingGroupName",
+            "${AUTOSCALING_GROUP_NAME}"
+          ]
+        ],
+        "region": "eu-central-1",
+        "title": "Memory"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 6,
+      "y": 9,
+      "width": 6,
+      "height": 6,
+      "properties": {
+        "view": "timeSeries",
+        "stacked": false,
+        "metrics": [
+          [
+            "${COMPONENT_NAME}",
+            "netstat_tcp_close",
+            "AutoScalingGroupName",
+            "${AUTOSCALING_GROUP_NAME}"
+          ],
+          [
+            ".",
+            "netstat_tcp_established",
+            ".",
+            "."
+          ],
+          [
+            ".",
+            "netstat_tcp_syn_sent",
+            ".",
+            "."
+          ]
+        ],
+        "region": "eu-central-1",
+        "title": "netstat"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 9,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "view": "timeSeries",
+        "stacked": false,
+        "metrics": [
+          [
+            "${COMPONENT_NAME}",
+            "disk_used_percent",
+            "AutoScalingGroupName",
+            "${AUTOSCALING_GROUP_NAME}"
+          ]
+        ],
+        "region": "eu-central-1",
+        "title": "Disk"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 15,
+      "width": 6,
+      "height": 6,
+      "properties": {
+        "view": "timeSeries",
+        "stacked": false,
+        "metrics": [
+          [
+            "AWS/EC2",
+            "MetadataNoToken",
+            "AutoScalingGroupName",
+            "${AUTOSCALING_GROUP_NAME}"
+          ]
+        ],
+        "region": "eu-central-1",
+        "title": "IMDSv2"
+      }
+    }
+  ]
+}

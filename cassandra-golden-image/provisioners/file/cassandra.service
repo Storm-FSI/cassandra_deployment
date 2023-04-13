@@ -1,0 +1,14 @@
+[Unit]
+Description=Apache Cassandra
+After=network.target
+
+[Service]
+PIDFile=/var/run/cassandra/cassandra.pid
+#TODO Environment="JVM_OPTS=-javaagent:/opt/jmx_prometheus/jmx_prometheus_javaagent-0.17.2.jar=7070:/opt/jmx_prometheus/cassandra.yaml"
+User=cassandra
+Group=cassandra
+ExecStart=/usr/sbin/cassandra -f -p /var/run/cassandra/cassandra.pid
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
