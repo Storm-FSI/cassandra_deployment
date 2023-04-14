@@ -12,7 +12,7 @@ The first step involves creating a golden image that automates the installation 
 
 The second step is to deploy the network environment to set up the necessary network resources for the Cassandra deployment. This step involves configuring the network to ensure that the Cassandra database can communicate with other nodes in the cluster.
 
-The final step is to deploy the default environment located in stages for the Cassandra deployment. This involves configuring the database and getting it ready to use.
+The final step is the cassandra deployment. This involves configuring the database and getting it ready to use.
 
 ## 1) Create yourself a goldenimage for cassandra:
  - The image will be created in the eu-central-1 region, and a standard Amazon Linux 2 image will be used as a source AMI.
@@ -26,37 +26,20 @@ packer fmt .                           # to format the configuration files
 packer validate .                      # to validate the configuration files
 packer build cassandra-image.pkr.hcl   # to start the image creation process.
 ```
-## 2) Deploy the network environment:
+## 2) Deploy the network infrastructure and the cassandra environment
 To deploy the network environment, follow the steps below:
 - Note that this deployment will use the default profile saved in ~/.aws.
+
+Go to the root terragrunt.hcl and set the parameters needed for the deployment. Parameters that need to be set are marked as #TODO
+
 Run the following commands:
+
 ```
-terraform init  
+terragrunt run-all init
 ```
-To initialize the Terraform configuration. You will need to specify the location where your Terraform state file will be stored. Here is an example input:
-```
-bucket = "terraform-bucket-name"
-key    = "key"
-region = "eu-central-1"
-```
-To apply the Terraform configuration and deploy the Cassandra database.
+This will trigger a terraform init for the network infrastructure and the cassandra environment.
+
 ```
 terraform apply 
 ```
-## 3) Deploy the cassandra environment:
-To deploy the Cassandra database, follow the steps below:
-- Note that this deployment will use the default profile saved in ~/.aws.
-Run the following commands:
-```
-terraform init  
-```
-To initialize the Terraform configuration. You will need to specify the location where your Terraform state file will be stored. Here is an example input:
-```
-bucket = "terraform-bucket-name"
-key    = "key"
-region = "eu-central-1"
-```
-To apply the Terraform configuration and deploy the Cassandra database.
-```
-terraform apply 
-```
+This will trigger a terraform apply for the network infrastructure and the cassandra environment.
