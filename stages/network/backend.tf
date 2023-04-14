@@ -7,9 +7,9 @@
             # Please enter the backend where the statefile will be stored. 
             # Recommended: Enable versioning for the S3 bucket to mistakes through human error.
             
-            bucket = "project-cassandra-cassandra-deployment"
-            key    = "network/terraform.tfstate"
-            region = "eu-central-1"
+            bucket = "project-cassandra-cassandra-deployment" #TODO
+            key    = "network/terraform.tfstate" #TODO
+            region = "eu-central-1" #TODO
             
             }
         }
