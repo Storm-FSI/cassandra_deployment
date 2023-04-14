@@ -54,7 +54,7 @@ inputs = {
 
     # cassandra related setup ------------------------------------------------------------------
     golden_image = "ami-029f7dca56afcedcd"
-    cassandra_instance_type = "t2.medium"
+    cassandra_instance = "t2.medium"
     # Enter a public key name that will be used. 
     # This has to be in the AWS Account that you will provision the cassandra db to.
     key_name = "cassandra"             
