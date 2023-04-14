@@ -18,12 +18,13 @@ The final step is to deploy the default environment located in stages for the Ca
  - The image will be created in the eu-central-1 region, and a standard Amazon Linux 2 image will be used as a source AMI.
  - Ensure that you have a default VPC set up since Packer will use it to create a temporary EC2 instance.
  - From the EC2 instance, Packer will create an AMI that you will need to use.
+ - you will need to be logged in an aws account through the aws cli.
  In the cassandra-image directory, run the following commands:
 ```
-packer init                          # to initialize the Packer configuration
-packer fmt                           # to format the configuration files
-packer validate                      # to validate the configuration files
-packer build cassandra-image.pkr.hcl # to start the image creation process.
+packer init .                          # to initialize the Packer configuration
+packer fmt .                           # to format the configuration files
+packer validate .                      # to validate the configuration files
+packer build cassandra-image.pkr.hcl   # to start the image creation process.
 ```
 ## 2) Deploy the network environment:
 To deploy the network environment, follow the steps below:
