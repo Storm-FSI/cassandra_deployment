@@ -12,9 +12,9 @@ generate "backend" {
             # Please enter the backend where the statefile will be stored. 
             # Recommended: Enable versioning for the S3 bucket to mistakes through human error.
             
-            bucket = "project-cassandra-cassandra-deployment"
-            key    = "${path_relative_to_include()}/terraform.tfstate"
-            region = "eu-central-1"
+            bucket = "project-cassandra-cassandra-deployment" #TODO
+            key    = "${path_relative_to_include()}/terraform.tfstate" #TODO
+            region = "eu-central-1" #TODO
             
             }
         }
@@ -37,35 +37,34 @@ generate "provider"{
     Please set all variables.
 */
 locals {
-    project_prefix = "project-cassandra"
+    project_prefix = "project-cassandra" #TODO
     current_account_id = "${get_aws_account_id()}"
 }
 inputs = {
     # general setup ----------------------------------------------------------------------------
-    account_id = "${local.current_account_id}"//"391091994985"
-    account_short_name = "dev-${local.project_prefix}"
-    project_prefix = "${local.project_prefix}"
-    region = "eu-central-1"
+    account_id = "${local.current_account_id}" 
+    account_short_name = "dev-${local.project_prefix}" #TODO
+    project_prefix = "${local.project_prefix}" 
+    region = "eu-central-1" #TODO
 
     # network setup ----------------------------------------------------------------------------
-    vpc_name = "${local.project_prefix}-dummy-vpc"
-    vpc_cidr = "192.168.0.0/24"
+    vpc_name = "${local.project_prefix}-dummy-vpc" #TODO
+    vpc_cidr = "192.168.0.0/24" #TODO
     # For this deployment the number of subnets are set to 4. 
 
     # cassandra related setup ------------------------------------------------------------------
-    golden_image = "ami-029f7dca56afcedcd"
-    cassandra_instance = "t2.medium"
+    # The ami id of the golden image created with packer.
+    golden_image = "ami-029f7dca56afcedcd" #TODO
+    cassandra_instance = "t2.medium" #TODO
     # Enter a public key name that will be used. 
     # This has to be in the AWS Account that you will provision the cassandra db to.
-    key_name = "cassandra"             
+    key_name = "cassandra" #TODO             
 
     # tag setup --------------------------------------------------------------------------------
     mandatory_tags = {
-        environment = "dev"
-        terraform = "true"
-        opsteam = "A-Team"
+        environment = "dev" #TODO
+        terraform = "true" #TODO
+        opsteam = "A-Team" #TODO
     }
     
 }
-
-//dependencies {}
