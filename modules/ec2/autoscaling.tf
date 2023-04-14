@@ -8,7 +8,7 @@ locals {
 }
 # creating cassandra encrypted parameter in ssm parameterstore
 resource "aws_ssm_parameter" "cassandra_cluster" {
-  name   = "${var.component_name}/cassandra-cluster-tag-value"
+  name   = "/${var.component_name}/cassandra-cluster-tag-value"
   type   = "SecureString"
   key_id = var.kms_key_arn
   value  = "app-cassandra"

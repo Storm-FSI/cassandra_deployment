@@ -1,5 +1,4 @@
 variable "project_prefix" {
-  default     = "projectprefix"
   description = "Variable comming from the environement"
 }
  
@@ -10,7 +9,7 @@ variable "cassandra_instance" {
 
 variable "key_name"{
   type = string
-  description = "Enter a public key that will be used. This has to be on the AWS Account that you will provision the cassandra db."
+  description = "Enter a public key name that will be used. This has to be in the AWS Account that you will provision the cassandra db to."
 }
 
 variable "region" {

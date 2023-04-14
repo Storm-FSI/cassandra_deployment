@@ -39,7 +39,7 @@ resource "aws_security_group" "cassandra_access" {
 }
 
 resource "aws_ssm_parameter" "cassandra_access" {
-  name  = "${local.component.name}/access-sg"
+  name  = "/${local.component.name}/access-sg"
   type  = "String"
   value = aws_security_group.cassandra_access.id
   tags  = local.mandatory_tags
@@ -73,9 +73,6 @@ module "ec2" {
     //local.app_access_sg //only to showcase that more securitygroups can be added.
   ]
   bastion_sg = aws_security_group.cassandra_access.id
-  trend_micro_enabled = false # if you enalbe you need a bigger instance type
-  qualys_enabled      = true
-  data_dog_enabled    = true
 
   component_name = local.component_name
   tags           = local.mandatory_tags

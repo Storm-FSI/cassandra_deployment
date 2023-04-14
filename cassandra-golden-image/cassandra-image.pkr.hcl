@@ -7,7 +7,7 @@ packer {
   }
 }
 source "amazon-ebs" "ubuntu" {
-  ami_name      = "packer-image"
+  ami_name      = "packer-image-1"
   instance_type = "t2.micro"
   region        = "eu-central-1"
   source_ami    = "ami-08f54b258788948e1"
