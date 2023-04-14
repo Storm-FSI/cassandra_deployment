@@ -29,11 +29,6 @@ resource "aws_ssm_parameter" "mandatory_tags" {
     project  = "projectname"
   })
 }
-resource "aws_ssm_parameter" "account_id" {
-  name  = "/${var.project_prefix}/component/config/output/account-id"
-  type  = "String"
-  value = var.account_id 
-}
 # Notification resources and input parameters------------------------------------------------------
 resource "aws_ssm_parameter" "alarm_sns_topic" {
   name        = "/${var.project_prefix}/component/notification/output/alarm-topic-arn"

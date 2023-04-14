@@ -1,3 +1,4 @@
+/*
 terraform {
   required_version = "1.4.4"
   required_providers {}
@@ -5,11 +6,10 @@ terraform {
     
     # Please enter the backend where the statefile will be stored. 
     # Recommended: Enable versioning for the S3 bucket to mistakes through human error.
-    /*
-    bucket = "terraform-state-cassandra-deployment"
+    bucket = "dummy-project-ssm-parameter"
     key    = "key"
     region = "eu-central-1"
-    */
     
   }
 }
+*/
