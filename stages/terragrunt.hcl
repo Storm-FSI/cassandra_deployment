@@ -1,4 +1,3 @@
-
 # generating backend.tf and provider.tf
 generate "backend" {
     path = "backend.tf"
@@ -32,6 +31,33 @@ generate "provider"{
         
     EOF    
 } 
+generate "outputs"{
+    path = "outputs.tf"
+    if_exists = "skip" # use "overwrite_terragrunt" if you want to add something to the outputs.tf on this level 
+    contents = <<EOF
+        /*
+        Add your outputs of this template here, if needed
+        Some important Conventions to take in consideration:
+        - consideration 1
+        - consideration 2
+        */
+        
+        
+    EOF    
+} 
+generate "variables" {
+    path = "variables.tf"
+    if_exists = "skip" # use "overwrite_terragrunt"  if you want to add something to the outputs.tf on this level 
+    contents = <<EOF
+        /*
+        Add your variables of this template here.
+        Some important Conventions to take in consideration:
+        - use variable names which are self explanatory 
+        */
+        
+        
+    EOF    
+}
 /*
     To centrally set parameters that are important for the whole deployment here is the input block.
     Please set all variables.
@@ -39,6 +65,7 @@ generate "provider"{
 locals {
     project_prefix = "project-cassandra" #TODO
     current_account_id = "${get_aws_account_id()}"
+    component = "app-cassandra" #TODO
 }
 inputs = {
     # general setup ----------------------------------------------------------------------------
@@ -61,10 +88,10 @@ inputs = {
     key_name = "cassandra" #TODO             
 
     # tag setup --------------------------------------------------------------------------------
-    mandatory_tags = {
-        environment = "dev" #TODO
-        terraform = "true" #TODO
-        opsteam = "A-Team" #TODO
-    }
+    mandatory_tags = jsonencode({
+        environment = "dev" 
+        terraform = "true" 
+        opsteam = "A-Team" 
+  })
     
 }

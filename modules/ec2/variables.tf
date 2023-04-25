@@ -17,7 +17,7 @@ variable "key_name" {
 
 variable "subnet_ids" {
   description = "Subnet where to create the instance"
-  type        = list(any)
+  type        = list(string)
 }
 
 variable "vpc_id" {
@@ -119,7 +119,7 @@ variable "kms_key_arn" {
 }
 
 variable "vpc_cidr" {
-  type = list(any)
+  type = string
 }
 variable "bastion_sg" {
   type = string

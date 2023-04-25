@@ -42,7 +42,7 @@ resource "aws_ssm_parameter" "cassandra_access" {
   name  = "/${local.component.name}/access-sg"
   type  = "String"
   value = aws_security_group.cassandra_access.id
-  tags  = local.mandatory_tags
+  tags  = local.mandatory_tags #101
 }
 
 # create the ec2 instance for the cassandra database
@@ -75,7 +75,7 @@ module "ec2" {
   bastion_sg = aws_security_group.cassandra_access.id
 
   component_name = local.component_name
-  tags           = local.mandatory_tags
+  tags           =  local.mandatory_tags
 
   root_block_device_kms_key_id  = module.kms.arn
   root_block_device_name        = data.aws_ami.default.root_device_name
