@@ -30,7 +30,7 @@ data "aws_ami" "default" {
 resource "aws_security_group" "cassandra_access" {
   name        = "${local.component_name}-access"
   description = "Holder of this SG has access to ${local.component_name}"
-  vpc_id      = local.vpc_id
+  vpc_id      = var.vpc_id # 101
   tags = merge(
     { Name = local.component_name },
     local.mandatory_tags
@@ -58,9 +58,9 @@ module "ec2" {
   asg_max_size         = 2
   asg_desired_capacity = 2
 
-  vpc_id     = local.vpc_id
-  subnet_ids = local.private_subnet_ids
-  vpc_cidr   = local.vpc_cidr
+  vpc_id     = var.vpc_id #101
+  subnet_ids = var.private_subnet_ids
+  vpc_cidr   = var.vpc_cidr
 
   allowed_source_security_group_ids = [
     aws_security_group.cassandra_access.id,
@@ -86,5 +86,5 @@ module "ec2" {
     //local.session_manager_policy //only to showcase that here additional policies can be added.
   ]
 
-  alarm_sns_topic = local.alarm_sns_topic
+  alarm_sns_topic = var.alarm_sns_topic
 }

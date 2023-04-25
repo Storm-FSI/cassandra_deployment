@@ -16,3 +16,15 @@ variable "region" {
 variable "golden_image" {
   description = "Enter the ami id of the golden image that you created earlier."
 }
+variable "vpc_id" {
+  description = "The vpc id of which the cassandra db will be deployed."
+}
+variable "vpc_cidr"{
+  
+}
+variable "alarm_sns_topic" {
+
+}
+variable "private_subnet_ids" {
+  
+}
