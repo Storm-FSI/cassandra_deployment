@@ -1,4 +1,7 @@
 # Network input parameters-------------------------------------------------------------------
+/*
+The following network parameters can be used optionally if terragrunt inputs are not being used.
+*/
 resource "aws_ssm_parameter" "vpc_id" {
   name  = "/${var.project_prefix}/component/network/output/vpc/id"
   type  = "String"

@@ -7,7 +7,7 @@
         */
 locals{
         network_information = {
-                "${var.region}-vpcs" = merge({
+                "${var.region}-vpc" = merge({
                         vpc_name = aws_vpc.main.tags.Name 
                         vpc_cidr = aws_vpc.main.cidr_block 
                         internet_gateway = aws_internet_gateway.gateway.tags.Name
