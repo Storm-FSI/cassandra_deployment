@@ -2,7 +2,7 @@
 resource "aws_vpc" "main" {
   cidr_block = var.vpc_cidr //"192.168.0.0/24"
   tags = {
-    Name = "${var.project_prefix}-dummy-vpc"
+    Name = "${var.project_prefix}-vpc"
   }
 }
 resource "aws_subnet" "private" {
@@ -12,7 +12,7 @@ resource "aws_subnet" "private" {
   # Create four subnet resources by repeating this block four times.
   count = 4
   tags = {
-    Name = "${var.project_prefix}-dummy-subnet-${count.index}"
+    Name = "${var.project_prefix}-subnet-${count.index}"
   }
 }
 # Create a internetgateway 

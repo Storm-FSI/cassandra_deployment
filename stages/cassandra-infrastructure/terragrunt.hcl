@@ -20,4 +20,9 @@ inputs = {
   vpc_id = dependency.vpc.outputs.vpc_id
   private_subnet_ids =  split(",", dependency.vpc.outputs.private_subnet_ids)
   alarm_sns_topic = dependency.vpc.outputs.alarm_sns_topic
+  network = {"default_network" = {
+                vpc_id = dependency.vpc.outputs.vpc_id
+                subnets = split(",", dependency.vpc.outputs.private_subnet_ids)
+        }
+    }
 }

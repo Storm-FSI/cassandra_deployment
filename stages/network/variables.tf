@@ -4,7 +4,7 @@
         Some important Conventions to take in consideration:
         - use variable names which are self explanatory 
         */
-        
+
 variable "project_prefix" {
   type = string
   description = "Variable comming from the environement"
@@ -16,5 +16,8 @@ variable "account_short_name"{
 variable "vpc_cidr"{
   type = string
   description = "the vpc cidr to create a vpc"
-}        
+}       
+variable "region"{
+        
+}
         

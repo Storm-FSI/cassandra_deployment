@@ -5,7 +5,26 @@
         - consideration 1
         - consideration 2
         */
-        
+locals{
+        network_information = {
+                "${var.region}-vpcs" = merge({
+                        vpc_name = aws_vpc.main.tags.Name 
+                        vpc_cidr = aws_vpc.main.cidr_block 
+                        internet_gateway = aws_internet_gateway.gateway.tags.Name
+                        route_table = aws_route_table.routetable_internetaccess.tags.Name
+                        }, {for value in aws_subnet.private:
+                                value.tags.Name => [
+                                value.cidr_block,
+                                value.availability_zone      
+                                ]                 
+                        })
+                        
+                }
+        }
+output "network" {
+  value = local.network_information
+}
+
 output "vpc_id" {
   description = "The ID of the VPC"
   value       = aws_vpc.main.id

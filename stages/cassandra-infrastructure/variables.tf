@@ -41,3 +41,31 @@ variable "mandatory_tags" {
   type        = map(any)
   description = "Additional tags (e.g. map(`BusinessUnit`,`XYZ`)"
 }
+variable "network"{
+  type = map(object({
+                vpc_id = string
+                subnets = list(string)
+                //security_groups = list(string)
+                //nat_gateway_enabled = bool
+        }))
+/*  default = {"default_network" = {
+                vpc_cidr_block = var.vpc_id #"10.0.0.0/16"
+                subnets = {#hier eine for schleife fuer output subent
+                        "subnet" = {
+                                cidr_block = "10.0.1.0/24"
+                                availability_zone = "us-west-1a"
+                                route_table_id = "rtb-12345"
+                        }
+                        "subnet2" = {
+                                cidr_block = "10.0.2.0/24"
+                                availability_zone = "us-west-1b"
+                                route_table_id = "rtb-67890"
+                        }
+                }
+                security_groups = ["sg-12345", "sg-67890"]
+                nat_gateway_enabled = true
+        }
+}*/
+}
+
+       
