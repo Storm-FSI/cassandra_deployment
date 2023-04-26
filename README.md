@@ -33,6 +33,11 @@ To deploy the network environment, follow the steps below:
 Go to the root terragrunt.hcl and set the parameters needed for the deployment. Parameters that need to be set are marked as #TODO
 
 Run the following commands:
+Note: Only for the first time, run the following command in the network deployment to ensure the right outputs for the cassandra deployment.
+```
+terragrunt init
+terragrunt apply
+```
 
 ```
 terragrunt run-all init
