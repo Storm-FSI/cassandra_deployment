@@ -113,10 +113,11 @@ variable "use_spot_instance" {
 variable "allowed_source_security_group_ids" {
   type = list(string)
 }
-
+/*
 variable "kms_key_arn" {
   type = string
 }
+*/
 
 variable "vpc_cidr" {
   type = string

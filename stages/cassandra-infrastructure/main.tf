@@ -8,13 +8,13 @@ locals {
     patch_group_name = "pg-${local.component_name}"
   }
 }
-
+// Creating a kms key with the kms module.
 module "kms" {
   source = "../../modules/kms"
 
   kms_key_description = "KMS Key for ${local.component.short_name}"
   kms_key_alias       = "alias/comp-${local.component.short_name}"
-
+  account_id = var.account_id
   tags = local.mandatory_tags
 
 }
@@ -50,7 +50,7 @@ module "ec2" {
   source = "../../modules/ec2"
   ami    = data.aws_ami.default.id
 
-  ec2_type = var.cassandra_instance 
+  ec2_type = var.cassandra_instance
 
   use_spot_instance = false
 
@@ -65,7 +65,7 @@ module "ec2" {
   allowed_source_security_group_ids = [
     aws_security_group.cassandra_access.id,
   ]
-  kms_key_arn = module.kms.arn
+  //kms_key_arn = module.kms.arn
   key_name = data.aws_key_pair.cassandra_key_pair.key_name
   # this is limmited to 5-1=4 as per AWS rule
   # More securitygroups can be added as needed.

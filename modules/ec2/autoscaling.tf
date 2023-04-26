@@ -6,6 +6,7 @@ locals {
   )
   asg_name = "${var.component_name}-${aws_launch_template.default.latest_version}"
 }
+/*
 # creating cassandra encrypted parameter in ssm parameterstore
 resource "aws_ssm_parameter" "cassandra_cluster" {
   name   = "/${var.component_name}/cassandra-cluster-tag-value"
@@ -14,7 +15,7 @@ resource "aws_ssm_parameter" "cassandra_cluster" {
   value  = "app-cassandra"
   tags   = var.tags
 }
-
+*/
 # creating a autoscalinggroup which will have 3 EC2 instances with cassandra 
 # installed on them. The autoscalinggroup uses the asg_launch_template. 
 resource "aws_autoscaling_group" "default" {

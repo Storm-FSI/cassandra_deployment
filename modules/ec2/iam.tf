@@ -32,3 +32,8 @@ resource "aws_iam_instance_profile" "default" {
   name_prefix = var.component_name
   role        = aws_iam_role.default.name
 }
+# Enable CloudWatch Agent
+resource "aws_iam_role_policy_attachment" "attach_cw_policy" {
+  role       = aws_iam_role.default.id
+  policy_arn = "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
+}

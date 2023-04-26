@@ -15,7 +15,7 @@ data "aws_iam_policy_document" "key_policy" {
     resources = ["*"]
     principals {
       type        = "AWS"
-      identifiers = ["*"]
+      identifiers = ["arn:aws:iam::${local.account_id}:root"]
     }
   }
 
@@ -38,24 +38,7 @@ data "aws_iam_policy_document" "key_policy" {
     resources = ["*"]
     principals {
       type        = "AWS"
-      identifiers = ["*"]
-    }
-  }
-
-  statement {
-    sid = "Give the CloudWatch service principal permission to use the CMK"
-    actions = [
-
-      "kms:Encrypt*",
-      "kms:Decrypt*",
-      "kms:ReEncrypt*",
-      "kms:GenerateDataKey*",
-      "kms:Describe",
-    ]
-    resources = ["*"]
-    principals {
-      type        = "AWS"
-      identifiers = ["*"]
+      identifiers = ["arn:aws:iam::${var.account_id}:role/SysAdmin"]
     }
   }
 
@@ -76,6 +59,7 @@ data "aws_iam_policy_document" "key_policy" {
     }
 
     resources = ["*"]
+    #best practice: https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-services.html
     condition {
       test     = "StringEquals"
       variable = "kms:CallerAccount"

@@ -31,6 +31,9 @@ generate "provider"{
         
     EOF    
 } 
+/*
+Reason: als bestpractice forcieren #todoo
+*/
 generate "outputs"{
     path = "outputs.tf"
     if_exists = "skip" # use "overwrite_terragrunt" if you want to add something to the outputs.tf on this level 

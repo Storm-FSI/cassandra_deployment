@@ -12,3 +12,6 @@ variable "kms_key_alias" {
   type        = string
   description = "Kms Key Alias i.e. `alias/comp-session-manager-settings`"
 }
+variable "account_id"{
+  type = string
+}

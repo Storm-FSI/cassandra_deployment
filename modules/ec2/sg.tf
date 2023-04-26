@@ -26,7 +26,7 @@ resource "aws_security_group_rule" "allow_egress" {
   from_port   = 0
   to_port     = 0
   protocol    = -1
-  cidr_blocks = ["0.0.0.0/0"]
+  cidr_blocks = ["0.0.0.0/0"] #not recommended (only for testing purposes)
   # Associates the egress rule with the previously created security group
   security_group_id = aws_security_group.default.id
 }
