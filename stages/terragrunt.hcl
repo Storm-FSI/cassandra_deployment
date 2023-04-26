@@ -69,6 +69,7 @@ locals {
     project_prefix = "project-cassandra" #TODO
     current_account_id = "${get_aws_account_id()}"
     component = "app-cassandra" #TODO
+    //Be aware: This Deployment uses a Role name SysAdmin that holds policies of an systemadmin #TODO
 }
 inputs = {
     # general setup ----------------------------------------------------------------------------
