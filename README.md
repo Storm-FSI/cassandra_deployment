@@ -38,7 +38,7 @@ Only for the first time, run the following command in the network deployment to 
 terragrunt init
 terragrunt apply
 ```
-To provision the whole deployment on root level, run the following commands:
+To provision the whole deployment, run the following commands in stages:
 ```
 terragrunt run-all init
 ```
